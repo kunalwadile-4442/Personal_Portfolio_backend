@@ -1,8 +1,3 @@
-Here’s a complete `README.md` file tailored for your **dynamic portfolio backend** built using **Node.js + Express + MongoDB + Cloudinary** with user auth and portfolio management features.
-
-You can adjust the project name or descriptions based on your preferences.
-
----
 
 ## 🧾 Dynamic Portfolio API – Node.js + Express + MongoDB
 
