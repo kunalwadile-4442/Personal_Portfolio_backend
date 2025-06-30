@@ -136,5 +136,3 @@ Let me know if you'd like this in Hindi, or tailored further for frontend setup 
 
 
 
-tommarow task :1update all the get apis pass a params userId then then get the data of that user required by the user
-2.contact us api
