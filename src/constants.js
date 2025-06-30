@@ -67,6 +67,13 @@ export const MESSAGES = {
     TECH_STACK_UPDATED_SUCCESSFULLY: "Tech stack updated successfully",
     TECH_STACK_FETCHED_SUCCESSFULLY: "Tech stack fetched successfully",
     TECH_STACK_DELETED_SUCCESSFULLY: "Tech stack deleted successfully",
+    PROJECT_CREATED_SUCCESSFULLY: "Project created successfully",
+    PROJECT_UPDATED_SUCCESSFULLY: "Project updated successfully",
+    PROJECTS_NOT_FOUND: "Projects not found",
+    PROJECT_DELETED_SUCCESSFULLY: "Project deleted successfully",
+    PROJECTS_FETCHED_SUCCESSFULLY: "Projects fetched successfully",
+    PROJECTS_DELETED_SUCCESSFULLY: "Projects deleted successfully",
+    USER_ALREADY_HAS_PROJECT: "User already has a project",
 };
 
 

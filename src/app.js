@@ -33,12 +33,14 @@ import userRouter from "./routes/user.routes.js"
 import heroesRouter from "./routes/hero.routes.js";
 import aboutRouter from "./routes/about.routes.js";
 import techstackRouter from "./routes/techstack.routes.js";
+import projectRouter from "./routes/project.routes.js";
 
 // routes delecration 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/heroes", heroesRouter);
 app.use("/api/v1/about", aboutRouter);
 app.use("/api/v1/techstack", techstackRouter);
+app.use("/api/v1/projects", projectRouter);
 
 
 export default app;
