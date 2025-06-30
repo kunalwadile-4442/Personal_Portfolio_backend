@@ -11,7 +11,8 @@ const techStackSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-    },subtitle:{
+    },
+    subtitle:{
         type: String,
         required: true,
         trim: true,

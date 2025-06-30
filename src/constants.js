@@ -63,6 +63,10 @@ export const MESSAGES = {
     "About and education updated successfully",
     ABOUT_AND_EDUCATION_DELETED_SUCCESSFULLY:
     "About and education deleted successfully",
+    TECH_STACK_CREATED_SUCCESSFULLY: "Tech stack created successfully",
+    TECH_STACK_UPDATED_SUCCESSFULLY: "Tech stack updated successfully",
+    TECH_STACK_FETCHED_SUCCESSFULLY: "Tech stack fetched successfully",
+    TECH_STACK_DELETED_SUCCESSFULLY: "Tech stack deleted successfully",
 };
 
 
