@@ -53,6 +53,16 @@ export const MESSAGES = {
   HERO_SECTION_DELETED_SUCCESSFULLY: "Hero section deleted successfully",
   RESUME_REQUIRED: "Resume is required",
   RESUME_UPLOAD_FAILED: "Resume upload failed",
+  ABOUT_AND_EDUCATION_CREATED_SUCCESSFULLY:
+    "About and education created successfully",
+    USER_ALREADY_HAS_ABOUT: "User already has an about section",
+    ABOUT_AND_EDUCATION_FETCHED_SUCCESSFULLY:
+    "About and education fetched successfully",
+    ABOUT_AND_EDUCATION_NOT_FOUND: "About and education not found",
+    ABOUT_AND_EDUCATION_UPDATED_SUCCESSFULLY:
+    "About and education updated successfully",
+    ABOUT_AND_EDUCATION_DELETED_SUCCESSFULLY:
+    "About and education deleted successfully",
 };
 
 

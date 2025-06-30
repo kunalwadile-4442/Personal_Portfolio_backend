@@ -31,10 +31,12 @@ app.use(express.static("public"));
 // routes
 import userRouter from "./routes/user.routes.js"
 import heroesRouter from "./routes/hero.routes.js";
+import aboutRouter from "./routes/about.routes.js";
 
 // routes delecration 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/heroes", heroesRouter);
+app.use("/api/v1/about", aboutRouter);
 
 
 export default app;
