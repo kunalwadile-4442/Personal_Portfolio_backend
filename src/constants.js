@@ -74,6 +74,14 @@ export const MESSAGES = {
     PROJECTS_FETCHED_SUCCESSFULLY: "Projects fetched successfully",
     PROJECTS_DELETED_SUCCESSFULLY: "Projects deleted successfully",
     USER_ALREADY_HAS_PROJECT: "User already has a project",
+    USER_ALREADY_HAS_EXPERIANCE: "User already has an experience section",
+    EXPERIANCE_CREATED_SUCCESSFULLY: "Experience created successfully",
+    INVALID_JSON: "Invalid JSON in experianceCard",
+    EXPERIANCE_FETCHED_SUCCESSFULLY: "Experience fetched successfully",
+    EXPERIANCE_UPDATED_SUCCESSFULLY: "Experience updated successfully",
+    EXPERIANCE_NOT_FOUND: "Experience not found",
+    EXPERIANCE_DELETED_SUCCESSFULLY: "Experience deleted successfully",
+    EXPERIANCE_CARD_DELETED_SUCCESSFULLY: "Experience card deleted successfully",
 };
 
 

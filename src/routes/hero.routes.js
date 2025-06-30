@@ -14,7 +14,7 @@ router.route("/create-hero").post(
   ]),
   createHeroSection
 );
-router.route("/get-hero").get(jwtVerify,getHeroSection);
+router.route("/get-hero").get(getHeroSection);
 
 router.route("/delete-hero").delete(jwtVerify, deleteHeroSection);
 

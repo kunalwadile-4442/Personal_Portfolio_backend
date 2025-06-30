@@ -9,6 +9,12 @@ const userSchema = new Schema(
     username: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true,select: false },
     // profileImage: {url: { type: String, trim: true },publicId: { type: String, trim: true }},
+    role:
+    {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
     refreshToken: { type: String },
   },
   { timestamps: true }
