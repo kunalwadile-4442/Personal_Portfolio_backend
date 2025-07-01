@@ -101,7 +101,13 @@ const updateTechStack = asyncHandler(async (req, res) => {
   );
 });
 const getTechStack = asyncHandler(async (req, res) => {
-  const techStack = await TechStack.findOne({ user: req.user._id });
+  const { userId } = req.params;
+
+  if (!userId) {
+    throw new ApiError(STATUS_CODE.BAD_REQUEST, "User ID is required in params");
+  }
+
+  const techStack = await TechStack.findOne({ user: userId });
 
   if (!techStack) {
     throw new ApiError(STATUS_CODE.NOT_FOUND, MESSAGES.TECH_STACK_NOT_FOUND);
@@ -117,7 +123,6 @@ const getTechStack = asyncHandler(async (req, res) => {
       )
     );
 });
-
 const deleteTechStack = asyncHandler(async (req, res) => {
   const techStack = await TechStack.findOneAndDelete({ user: req.user._id });
 

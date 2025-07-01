@@ -36,6 +36,7 @@ import aboutRouter from "./routes/about.routes.js";
 import techstackRouter from "./routes/techstack.routes.js";
 import projectRouter from "./routes/project.routes.js";
 import experianceRouter from "./routes/experiance.routes.js";
+import contactRouter from "./routes/contact.routes.js";
 
 // routes delecration 
 app.use("/api/v1/users", userRouter);
@@ -44,6 +45,7 @@ app.use("/api/v1/about", aboutRouter);
 app.use("/api/v1/techstack", techstackRouter);
 app.use("/api/v1/projects", projectRouter);
 app.use("/api/v1/experiance", experianceRouter);
+app.use("/api/v1", contactRouter);
 
 
 export default app;

@@ -140,11 +140,17 @@ const updateProjects = asyncHandler(async (req, res) => {
 });
 
 const getProjects = asyncHandler(async (req, res) => {
-  const projects = await Project.find({ user: req.user._id });
+  const { userId } = req.params;
 
-    if (!projects || projects.length === 0) {
+  if (!userId) {
+    throw new ApiError(STATUS_CODE.BAD_REQUEST, "User ID is required in params");
+  }
+
+  const projects = await Project.find({ user: userId });
+
+  if (!projects || projects.length === 0) {
     throw new ApiError(STATUS_CODE.NOT_FOUND, MESSAGES.PROJECTS_NOT_FOUND);
-    }
+  }
 
   return res
     .status(STATUS_CODE.OK)
@@ -155,7 +161,7 @@ const getProjects = asyncHandler(async (req, res) => {
         MESSAGES.PROJECTS_FETCHED_SUCCESSFULLY
       )
     );
-}); 
+});
 
 const deleteProjects = asyncHandler(async (req, res) => {
   const projects = await Project.findOneAndDelete({ user: req.user._id });

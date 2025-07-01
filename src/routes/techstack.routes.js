@@ -21,7 +21,7 @@ router.route("/update-stack").put(
   upload.any(), // dynamically handles any stack[n][icon]
   updateTechStack
 );
-router.route("/get-stacks").get( getTechStack);
+router.route("/get-stacks/:userId").get( getTechStack);
 router.route("/delete-stack").delete(jwtVerify, deleteTechStack);
 
 export default router;

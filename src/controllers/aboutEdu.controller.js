@@ -35,7 +35,16 @@ const createAboutEdu = asyncHandler(async (req, res) => {
 });
 
 const getAboutEdu = asyncHandler(async (req, res) => {
-  const aboutEdu = await AboutAndEducation.findOne({ user: req.user._id });
+  const { userId } = req.params;
+
+  if (!userId) {
+    throw new ApiError(
+      STATUS_CODE.BAD_REQUEST,
+      "User ID is required in params"
+    );
+  }
+
+  const aboutEdu = await AboutAndEducation.findOne({ user: userId });
 
   if (!aboutEdu) {
     throw new ApiError(

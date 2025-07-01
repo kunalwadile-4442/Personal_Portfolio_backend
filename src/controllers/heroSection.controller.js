@@ -71,21 +71,27 @@ const createHeroSection = asyncHandler(async (req, res) => {
 });
 
 const getHeroSection = asyncHandler(async (req, res) => {
-  const heroSection = await HeroSection.findOne({ user: req.user._id });
+  const { userId } = req.params;
+
+  if (!userId) {
+    throw new ApiError(STATUS_CODE.BAD_REQUEST, "User ID is required in params");
+  }
+
+  const heroSection = await HeroSection.findOne({ user: userId });
 
   if (!heroSection) {
     throw new ApiError(STATUS_CODE.NOT_FOUND, MESSAGES.HERO_SECTION_NOT_FOUND);
   }
 
-  return res 
-  .status(STATUS_CODE.OK)
-  .json(
-    new ApiResponse(
-      STATUS_CODE.OK,
-      { heroSection },
-      MESSAGES.HERO_SECTION_FETCHED_SUCCESSFULLY
-    )
-  );
+  return res
+    .status(STATUS_CODE.OK)
+    .json(
+      new ApiResponse(
+        STATUS_CODE.OK,
+        { heroSection },
+        MESSAGES.HERO_SECTION_FETCHED_SUCCESSFULLY
+      )
+    );
 });
 
 const updateHeroSection = asyncHandler(async (req, res) => {

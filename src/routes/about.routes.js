@@ -8,7 +8,7 @@ const router  = Router();
 
 
 router.route("/about-create").post(jwtVerify, createAboutEdu);
-router.route("/about-get").get( getAboutEdu);
+router.route("/about-get/:userId").get( getAboutEdu);
 router.route("/about-update").patch(jwtVerify, updateAboutEdu);
 router.route("/about-delete").delete(jwtVerify, deleteAboutEdu);
 

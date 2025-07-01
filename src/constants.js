@@ -82,6 +82,7 @@ export const MESSAGES = {
     EXPERIANCE_NOT_FOUND: "Experience not found",
     EXPERIANCE_DELETED_SUCCESSFULLY: "Experience deleted successfully",
     EXPERIANCE_CARD_DELETED_SUCCESSFULLY: "Experience card deleted successfully",
+    MAIL_SEND_SUCCESFULLY: "Email sent successfully",
 };
 
 

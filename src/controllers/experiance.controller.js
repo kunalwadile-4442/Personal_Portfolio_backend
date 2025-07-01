@@ -51,10 +51,10 @@ const createExperiance = asyncHandler(async (req, res) => {
 
 
 const getExperiance = asyncHandler(async (req, res) => {
-  const { userId } = req.query;
+  const { userId } = req.params;
 
   if (!userId) {
-    throw new ApiError(STATUS_CODE.BAD_REQUEST, "User ID is required");
+    throw new ApiError(STATUS_CODE.BAD_REQUEST, "User ID is required in params");
   }
 
   const experiance = await Experiance.findOne({ user: userId });

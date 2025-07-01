@@ -10,7 +10,7 @@ const router = Router();
 
 router.route("/create-experiance").post(jwtVerify, createExperiance);
 
-router.route("/get-experiance").get(getExperiance);
+router.route("/get-experiance/:userId").get(getExperiance);
 
 router.route("/update-experiance").put(jwtVerify, updateExperiance);
 
