@@ -198,6 +198,7 @@ const downloadResume = asyncHandler(async (req, res) => {
     throw new ApiError(STATUS_CODE.BAD_GATEWAY, MESSAGES.RESUME_DOWNLOAD_FAILED);
   }
   response.body.pipe(res); 
+  
 });
 
 export {createHeroSection,getHeroSection,updateHeroSection,deleteHeroSection, downloadResume};
