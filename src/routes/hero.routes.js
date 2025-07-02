@@ -1,6 +1,6 @@
 import { upload } from "../middlewares/multer.middleware.js";
 import { Router } from "express"; 
-import { createHeroSection, deleteHeroSection, getHeroSection, updateHeroSection } from "../controllers/heroSection.controller.js";
+import { createHeroSection, deleteHeroSection, downloadResume, getHeroSection, updateHeroSection } from "../controllers/heroSection.controller.js";
 import { jwtVerify } from "../middlewares/auth.middleware.js";
 
 
@@ -17,6 +17,8 @@ router.route("/create-hero").post(
 router.route("/get-hero/:userId").get(getHeroSection);
 
 router.route("/delete-hero").delete(jwtVerify, deleteHeroSection);
+
+router.get("/download-resume/:userId", downloadResume);
 
 router.route("/update-hero").patch(jwtVerify, upload.fields([
     { name: "avatar", maxCount: 1 },

@@ -4,6 +4,8 @@ import  ApiResponse from "../utils/apiResponse.js";
 import { STATUS_CODE,MESSAGES } from "../constants.js";
 import { ApiError } from "../utils/apiError.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js";
+import fetch from "node-fetch"; // optional if you're streaming manually
+
 
 const createHeroSection = asyncHandler(async (req, res) => {
   const { title, designation } = req.body;
@@ -171,4 +173,31 @@ const deleteHeroSection = asyncHandler(async (req, res) => {
 });
 
 
-export {createHeroSection,getHeroSection,updateHeroSection,deleteHeroSection};
+const downloadResume = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+
+  if (!userId) {
+    throw new ApiError(STATUS_CODE.BAD_REQUEST, MESSAGES.USER_ID_REQUIRED);
+  }
+
+  const hero = await HeroSection.findOne({ user: userId });
+  if (!hero || !hero.resumeLink) {
+    throw new ApiError(STATUS_CODE.NOT_FOUND, MESSAGES.RESUME_NOT_FOUND);
+  }
+
+  const fileUrl = hero.resumeLink;
+
+  res.setHeader(
+    "Content-Disposition",
+    "attachment; filename=Kunal-Wadile-Resume.pdf"
+  );
+  res.setHeader("Content-Type", "application/pdf");
+
+  const response = await fetch(fileUrl);
+  if (!response.ok) {
+    throw new ApiError(STATUS_CODE.BAD_GATEWAY, MESSAGES.RESUME_DOWNLOAD_FAILED);
+  }
+  response.body.pipe(res); 
+});
+
+export {createHeroSection,getHeroSection,updateHeroSection,deleteHeroSection, downloadResume};

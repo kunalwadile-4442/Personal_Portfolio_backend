@@ -83,6 +83,9 @@ export const MESSAGES = {
     EXPERIANCE_DELETED_SUCCESSFULLY: "Experience deleted successfully",
     EXPERIANCE_CARD_DELETED_SUCCESSFULLY: "Experience card deleted successfully",
     MAIL_SEND_SUCCESFULLY: "Email sent successfully",
+    USER_ID_REQUIRED: "User ID is required",
+    RESUME_NOT_FOUND: "Resume not found",
+    RESUME_DOWNLOAD_FAILED: "Failed to download resume",
 };
 
 
