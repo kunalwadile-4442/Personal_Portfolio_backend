@@ -7,6 +7,49 @@ import { STATUS_CODE, MESSAGES } from "../constants.js";
 const submitContactForm = asyncHandler(async (req, res) => {
   const { name, email, subject, phone, message } = req.body;
 
+// 🧍 Name
+if (!name) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Name is required.");
+}
+if (name.length > 256) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Name must not exceed 256 characters.");
+}
+
+// 📧 Email
+if (!email) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Email is required.");
+}
+if (email.length > 256) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Email must not exceed 256 characters.");
+}
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Email format is invalid.");
+}
+
+// 📝 Subject
+if (!subject) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Subject is required.");
+}
+if (subject.length > 256) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Subject must not exceed 256 characters.");
+}
+
+// 📱 Phone
+if (!phone) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Phone number is required.");
+}
+if (!/^\+?\d{10,15}$/.test(phone)) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Phone number must be 10–15 digits (with optional +).");
+}
+
+// 💬 Message
+if (!message) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Message is required.");
+}
+if (message.length > 1000) {
+  throw new ApiError(STATUS_CODE.BAD_REQUEST, "Message must not exceed 1000 characters.");
+}
+
   const contactSave = await Contact.create({
     user: req.user?._id || null,
     name,
