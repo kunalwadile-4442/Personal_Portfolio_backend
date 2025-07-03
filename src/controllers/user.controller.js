@@ -51,6 +51,11 @@ if(!email || !password || !username || !fullName){
   throw new ApiError(STATUS_CODE.BAD_REQUEST, MESSAGES.REQUIRED_FIELDS);
 }
 
+const existingAdmin = await User.findOne({ role: "admin" });
+  if (existingAdmin) {
+    throw new ApiError(STATUS_CODE.FORBIDDEN, "Admin already exists. Cannot create another admin.");
+  }
+
 const existingUser = await User.findOne({
   $or:[
     {email:email.toLowerCase()},
@@ -103,6 +108,11 @@ const loginUser = asyncHandler(async (req, res) => {
 
   if ((!email && !username)|| !password) {
     throw new ApiError(STATUS_CODE.BAD_REQUEST, MESSAGES.REQUIRED_FIELDS);
+  }
+
+  const roleAdmin = await User.findOne({ role: "admin" });
+  if (!roleAdmin){
+    throw new ApiError(STATUS_CODE.FORBIDDEN, MESSAGES.NO_ADMIN_ROLE);
   }
 
   // ✅ find user by email or username

@@ -7,13 +7,11 @@ const userSchema = new Schema(
     fullName: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, trim: true },
     username: { type: String, required: true, unique: true, trim: true },
-    password: { type: String, required: true,select: false },
-    // profileImage: {url: { type: String, trim: true },publicId: { type: String, trim: true }},
-    role:
-    {
+    password: { type: String, required: true, select: false },
+    role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: ["admin"],
+      default: "admin",
     },
     refreshToken: { type: String },
   },
@@ -46,11 +44,9 @@ userSchema.methods.generateAccessToken = function () {
 
 // ✅ Refresh token
 userSchema.methods.generateRefreshToken = function () {
-  return jwt.sign(
-    { _id: this._id },
-    process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN }
-  );
+  return jwt.sign({ _id: this._id }, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
+  });
 };
 
 export const User = model("User", userSchema);

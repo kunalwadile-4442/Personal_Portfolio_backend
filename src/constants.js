@@ -86,6 +86,7 @@ export const MESSAGES = {
     USER_ID_REQUIRED: "User ID is required",
     RESUME_NOT_FOUND: "Resume not found",
     RESUME_DOWNLOAD_FAILED: "Failed to download resume",
+    NO_ADMIN_ROLE: "User does not have admin role",
 };
 
 

@@ -6,7 +6,11 @@ import { STATUS_CODE, MESSAGES } from "../constants.js";
 import { ApiError } from "../utils/apiError.js";
 
 const createProjects = asyncHandler(async (req, res) => {
+  
   const { title, subtitle, projectCard } = req.body;
+
+  console.log("req.user on server", req.user);
+console.log("req.user._id", req.user?._id);
 
   if (!title || !subtitle || !projectCard) {
     throw new ApiError(STATUS_CODE.BAD_REQUEST, MESSAGES.REQUIRED_FIELDS);
